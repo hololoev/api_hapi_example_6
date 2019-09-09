@@ -1,0 +1,7 @@
+db
+node_modules
+tmp
+report.*
+.DS_Store
+.idea
+dummy_data
