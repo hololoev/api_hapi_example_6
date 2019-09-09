@@ -23,7 +23,7 @@ async function validate (request, token) { // а вот тут уже начин
   }
   });
   
-  if( !dbToken ) {
+  if ( !dbToken ) {
     // Нет такого токена, либо он просрочен
     return {
       isValid: false,
@@ -34,7 +34,7 @@ async function validate (request, token) { // а вот тут уже начин
   // Ищем юзера
   let curUser = await users.findOne({ where: { id: dbToken.dataValues.user_id } });
   
-  if( !curUser ) {// Если юзера нет, то говорим, что неавторизованы
+  if ( !curUser ) {// Если юзера нет, то говорим, что неавторизованы
     // Нужно удалить невалидный токен
     accessToken.destroy({ where: { user_id: dbToken.dataValues.user_id } });
     return {

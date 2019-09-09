@@ -59,8 +59,9 @@ async function createServer() {
 
   // Загружаем все руты из папки ./src/routes/
   let routes = filepaths.getSync(__dirname + '/routes/');
-  for(let route of routes)
+  for (let route of routes) {
     server.route( require(route) );
+  }
   
   server.ext({
     type: 'onRequest',
@@ -74,7 +75,7 @@ async function createServer() {
   try {
     await server.start();
     console.log(`Server running at: ${server.info.uri}`);
-  } catch(err) { // если не смогли стартовать, выводим ошибку
+  } catch (err) { // если не смогли стартовать, выводим ошибку
     console.log(JSON.stringify(err));
   }
 

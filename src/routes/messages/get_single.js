@@ -7,7 +7,7 @@ async function response(request) {
   const messages = request.getModel(request.server.config.db.database, 'messages');
   let data = await messages.findOne({ where: { id: request.params.id } });
 
-  if( !data ) {
+  if ( !data ) {
     throw Boom.notFound();
   }
 

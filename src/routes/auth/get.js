@@ -13,12 +13,12 @@ async function response(request) {
   let userRecord = await users.findOne({ where: { email: request.query.login } });
 
   // если не нашли, говорим что не авторизованы
-  if( !userRecord ) {
+  if ( !userRecord ) {
     throw Boom.unauthorized();
   }
   
   // Проверяем совподают ли пароли
-  if( !userRecord.verifyPassword(request.query.password) ) {
+  if ( !userRecord.verifyPassword(request.query.password) ) {
     throw Boom.unauthorized();// если нет, то опять ж говорим, что не авторизованы
   }
   

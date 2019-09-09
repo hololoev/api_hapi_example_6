@@ -130,13 +130,9 @@ function generateRequest(route, authKeys) {
   return options;
 }
 
-// Load routes
 let authKeys = genAuthHeaders();
-//let authKeys = {};
 let testSec = [ 'POST', 'PUT', 'GET', 'DELETE' ];
 let routeList = [];
-
-//routeList.push( require('../src/routes/v1/gateway_group/get_one') )
 
 for(let route of filepaths.getSync(__dirname + '/../src/routes/'))
   routeList.push(require(route));
